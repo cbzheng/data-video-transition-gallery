@@ -1,0 +1,50 @@
+[
+    {
+        "NR_id": 0,
+        "NR_tag": "similarity",
+        "NR_color": "#ca5f5f",
+        "NR_indicator": ["and", "similarly"],
+        "NR_desc": "The similarity relationship of two consecutive scenes indicate that they present similar arguments. For indicator, a bar chart reflecting the infected cases number growth in France can be presented after that in Germany, indicating similar trends",
+        "NR_num": 15
+    },
+    {
+        "NR_id": 1,
+        "NR_tag": "contrast",
+        "NR_color": "#ea9081",
+        "NR_indicator": ["but", "by contrast"],
+        "NR_desc": "Suspense uses retardation to build tension and anticipation. It is extensively used in film-making and is regarded as one of the primary features of cinematic storytelling.",
+        "NR_num": 8
+    },
+    {
+        "NR_id": 2,
+        "NR_tag": "elaboration",
+        "NR_color": "#efbd9c",
+        "NR_indicator": ["also", "furthermore", "in addition"],
+        "NR_desc": "Comparison facilitates the explanation of similarities and differences by analyzing two or more datasets/data points. As a common means of presenting visualizations, comparison is also effective for data-driven storytelling.",
+        "NR_num": 9
+    },
+    {
+        "NR_id": 3,
+        "NR_tag": "generalization",
+        "NR_color": "#e2cc6d",
+        "NR_indicator": "in general",
+        "NR_desc": "Cohering is a visual narrative tactic that augments the continuity of a story by building animated transitions between individual parts. Cohering is a common strategy used in film-making to sew up discrete story pieces and create an intuitive viewing experience.",
+        "NR_num": 5
+    },
+    {
+        "NR_id": 4,
+        "NR_tag": "cause-effect",
+        "NR_color": "#c0c96f",
+        "NR_indicator": ["because", "and so"],
+        "NR_desc": "Ellipsis is used to compact the narratives of a story and deliver the appropriate amount of information to prevent overwhelming the audience. In narratology, subnarratable content, that is, something not worthy of being told as it is too obvious or not interesting, is often left out by the narrator.",
+        "NR_num": 4
+    },
+    {
+        "NR_id": 5,
+        "NR_tag": "temporal",
+        "NR_color": "#799ea8",
+        "NR_indicator": ["(and) then", "before", "after"],
+        "NR_desc": "Focalization is a concept from narratology that refers to selecting the perspective through which a narrative is presented. In visual narratives, focalization can be achieved by manipulating the camera angle and scale.",
+        "NR_num": 2
+    }
+]
