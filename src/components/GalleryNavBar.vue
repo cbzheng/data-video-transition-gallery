@@ -21,6 +21,6 @@ export default {
 <style scoped>
 #navbar {
     box-shadow: 3px 3px 10px #aaaaaa;
-    z-index: 100
+    z-index: 500
 }
 </style>
