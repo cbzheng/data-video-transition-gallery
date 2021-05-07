@@ -15,7 +15,7 @@
           {{ DOName }}
         </div>
         <div class="card-deck">
-          <div v-for="card in doCardGroup" :key="card.card_id">
+          <div v-for="card in doCardGroup" :key="card.card_title">
             <Card
               :cardTitle="card.card_title"
               :cardID="card.card_id"
@@ -36,23 +36,30 @@
 <script>
 import { fetchTransitionCards } from "../api";
 import Card from "./Card.vue";
+import { mapState } from "vuex";
 
 export default {
   name: "DesignSpaceGallery",
   components: {
     Card,
   },
-  props: {
-    NRCollection: Array,
-  },
+  // props: {
+  //   NRCollection: Array,
+  // },
   data: function () {
     return {
       cards: Array,
     };
   },
   computed: {
+    ...mapState({
+      NRCollection: (state) => state.designSpace.narrativeRelationships,
+      DOCollection: (state) => state.designSpace.ataOperations,
+      ELCollection: (state) => state.designSpace.editorialLayers,
+      TransitionCards: (state) => state.designSpace.TransitionCards,
+    }),
     NarrativeRelationships: function () {
-      if (this.NRCollection[0] == undefined) {
+      if (this.NRCollection == undefined || this.NRCollection[0] == undefined) {
         return {};
       }
       const NRs = {};
@@ -63,7 +70,7 @@ export default {
       return NRs;
     },
     NRCardsGroups: function () {
-      if (this.cards[0] == undefined) {
+      if (this.cards == undefined || this.cards[0] == undefined) {
         return {};
       }
       const cardsGroups = {};
@@ -131,7 +138,7 @@ export default {
   opacity: 1;
   transition: opacity 0.2s cubic-bezier(0.28, 0.11, 0.32, 1);
 
-  background: hsla(0, 0%, 100%, .75);
+  background: hsla(0, 0%, 100%, 0.75);
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
 }

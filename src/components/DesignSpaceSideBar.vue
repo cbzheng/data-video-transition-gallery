@@ -10,7 +10,7 @@
         </b-card>
       </b-collapse>
       <div>
-        <div v-for="NR in NRCollection" :key="NR.NR_tag">
+        <div v-for="NR in NarrativeRelationships" :key="NR.NR_tag">
           <a href="#" class="sidebar-btn scrollSpy-btn default">
             <b-container>
               <b-row>
@@ -19,7 +19,11 @@
                     class="scrollSpy-btn-symbol"
                     :style="{ backgroundColor: NR.NR_color }"
                   ></span>
-                  <span class="scrollSpy-btn-text" v-b-toggle="'collapse' + NR.NR_tag">{{ NR.NR_tag }}</span>
+                  <span
+                    class="scrollSpy-btn-text"
+                    v-b-toggle="'collapse' + NR.NR_tag"
+                    >{{ NR.NR_tag }}</span
+                  >
                 </b-col>
                 <b-col>
                   <span class="scrollSpy-btn-checkbox">
@@ -31,7 +35,7 @@
           </a>
           <b-collapse :id="'collapse' + NR.NR_tag" class="mt-2">
             <b-card>
-              <p class="card-text">{{NR.NR_desc}}</p>
+              <p class="card-text">{{ NR.NR_desc }}</p>
             </b-card>
           </b-collapse>
         </div>
@@ -40,17 +44,17 @@
     <div id="data-operation" class="dimention">
       <div class="dimension-header">Data Operation</div>
       <div>
-        <div v-for="DO in DOCollection" :key="DO.DO_tag">
+        <div v-for="DO in DataOperations" :key="DO.DO_tag">
           <a href="#" class="sidebar-btn scrollSpy-btn default">
-              <b-container>
+            <b-container>
               <b-row>
                 <b-col cols="8">
-            <span
-              class="scrollSpy-btn-symbol"
-              :style="{ backgroundColor: DO.DO_color }"
-            ></span>
-            <span class="scrollSpy-btn-text">{{ DO.DO_tag }}</span>
-            </b-col>
+                  <span
+                    class="scrollSpy-btn-symbol"
+                    :style="{ backgroundColor: DO.DO_color }"
+                  ></span>
+                  <span class="scrollSpy-btn-text">{{ DO.DO_tag }}</span>
+                </b-col>
                 <b-col>
                   <span class="scrollSpy-btn-checkbox">
                     <b-form-checkbox switch></b-form-checkbox>
@@ -67,7 +71,7 @@
     </div>
     <div id="transition-effect" class="dimention">
       <div class="dimension-header">Editorial Layers</div>
-      <div v-for="EL in ELCollection" :key="EL.EL_tag">
+      <div v-for="EL in EditorialLayers" :key="EL.EL_tag">
         <a class="sidebar-btn filter-btn active">
           <span class="filter-btn-symbol"></span>
           <span class="filter-btn-text">{{ EL.EL_tag }}</span>
@@ -78,29 +82,24 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapState } from "vuex";
 
 export default {
   name: "DesignSpaceSideBar",
   data: function () {
     return {
-      NarrativeRelationships: this.NRCollection,
-      DataOperations: this.DOCollection,
-      EditorialLayers: this.ELCollection,
       NRSelect: {},
-      DOSelect: {}
+      DOSelect: {},
     };
   },
   computed: {
-    ...mapGetters([
-      "NRFilter",
-      "DOFilter"
-    ])
-  },
-  props: {
-    NRCollection: Array,
-    DOCollection: Array,
-    ELCollection: Array,
+    ...mapState({
+      NarrativeRelationships: (state) =>
+        state.designSpace.narrativeRelationships,
+      DataOperations: (state) => state.designSpace.dataOperations,
+      EditorialLayers: (state) => state.designSpace.editorialLayers,
+    }),
+    ...mapGetters(["NRFilter", "DOFilter"]),
   },
 };
 </script>

@@ -2,40 +2,30 @@
   <b-container fluid>
     <b-row>
       <b-col cols="3" id="ds-sidebar">
-        <DesignSpaceSideBar  :NRCollection="NRCollection" :DOCollection="DOCollection" :ELCollection="ELCollection"/>
+        <DesignSpaceSideBar />
       </b-col>
       <b-col id="gallery">
-          <DesignSpaceGallery :NRCollection="NRCollection"/>
-    </b-col>
+        <DesignSpaceGallery />
+      </b-col>
     </b-row>
   </b-container>
 </template>
 
 <script>
 import DesignSpaceSideBar from "./DesignSpaceSideBar.vue";
-import DesignSpaceGallery from "./DesignSpaceGallery.vue"
-import { fetchDSDataOperations, fetchDSEditorialLayers, fetchDSNarrativeRelationships, fetchTransitionCards } from "../api";
+import DesignSpaceGallery from "./DesignSpaceGallery.vue";
 
 export default {
   name: "DesignSpace",
   components: {
     DesignSpaceSideBar,
-    DesignSpaceGallery
+    DesignSpaceGallery,
   },
-  data: () => {
-    return {
-      NRCollection: [],
-      DOCollection: [],
-      ELCollection: [],
-      TransitionCards: []
-    };
-  },
-  beforeMount: async function() {
-    this.NRCollection = await fetchDSNarrativeRelationships();
-    this.DOCollection = await fetchDSDataOperations(); 
-    this.ELCollection = await fetchDSEditorialLayers();
-    this.TransitionCards = await fetchTransitionCards();
-    this.$store.dispatch("fetchDesignSpace")
+  computed: {},
+
+  beforeMount: async function () {
+    this.$store.dispatch("fetchDesignSpace");
+    console.log(this.$store);
   },
 };
 </script>
@@ -50,13 +40,13 @@ export default {
 
 #ds-sidebar {
   display: block !important;
-    padding-bottom: 0;
-    padding-right: 0px;
-    position: sticky;
-    top: 3.75rem;
-    height: calc(100vh - 3.75rem);
-    overflow-y: auto;
-    box-shadow: none;
-    border-right: 1px solid #DEDEDE;
+  padding-bottom: 0;
+  padding-right: 0px;
+  position: sticky;
+  top: 3.75rem;
+  height: calc(100vh - 3.75rem);
+  overflow-y: auto;
+  box-shadow: none;
+  border-right: 1px solid #dedede;
 }
 </style>
