@@ -27,7 +27,11 @@
                 </b-col>
                 <b-col>
                   <span class="scrollSpy-btn-checkbox">
-                    <b-form-checkbox switch></b-form-checkbox>
+                    <b-form-checkbox
+                      switch
+                      v-model="NRSelect[NR.NR_tag]"
+                      v-on:change="NRSelectChange(NR.NR_tag)"
+                    ></b-form-checkbox>
                   </span>
                 </b-col>
               </b-row>
@@ -57,7 +61,10 @@
                 </b-col>
                 <b-col>
                   <span class="scrollSpy-btn-checkbox">
-                    <b-form-checkbox switch></b-form-checkbox>
+                    <b-form-checkbox
+                      switch
+                      v-model="DOSelect[DO.DO_tag]"
+                    ></b-form-checkbox>
                   </span>
                 </b-col>
               </b-row>
@@ -82,7 +89,7 @@
 </template>
 
 <script>
-import { mapGetters, mapState } from "vuex";
+import {  mapState } from "vuex";
 
 export default {
   name: "DesignSpaceSideBar",
@@ -98,8 +105,29 @@ export default {
         state.designSpace.narrativeRelationships,
       DataOperations: (state) => state.designSpace.dataOperations,
       EditorialLayers: (state) => state.designSpace.editorialLayers,
-    }),
-    ...mapGetters(["NRFilter", "DOFilter"]),
+    })
+  },
+  methods: {
+    NRSelectChange: function(NRTag) {
+      this.$store.commit("UPDATE_NR_FILTER", NRTag)
+    },
+    DOSelectChange: function(DOTag) {
+      this.$store.commit("UPDATE_DO_FILTER", DOTag)
+    }
+  },
+  watch: {
+    NarrativeRelationships(value) {
+      this.NRSelect = {};
+      value.forEach((relation) => {
+        this.NRSelect[relation.NR_tag] = true;
+      });
+    },
+    DataOperations(value) {
+      this.DOSelect = {};
+      value.forEach((operation) => {
+        this.DOSelect[operation.DO_tag] = true;
+      });
+    },
   },
 };
 </script>

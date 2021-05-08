@@ -1,5 +1,6 @@
+import Vue from "vue"
 import {
-    ADD_DATA_OPERATION_TO_FILTER, ADD_NARRATIVE_RELATIONSHIP_TO_FILTER, FLIP_DO_FILTER, FLIP_NR_FILTER
+    ADD_DATA_OPERATION_TO_FILTER, ADD_NARRATIVE_RELATIONSHIP_TO_FILTER, UPDATE_DO_FILTER, UPDATE_NR_FILTER
 } from "../mutations"
 
 const state = () => ({
@@ -8,8 +9,7 @@ const state = () => ({
 })
 
 const getters = {
-    NRFilter: state => state.NRFilter,
-    DOFilter: state => state.DOFilter
+
 }
 
 const actions = {
@@ -27,14 +27,14 @@ const mutations = {
             state.DOFilter[do_name] = false
         }
     },
-    [FLIP_NR_FILTER] (state, nr_name) {
+    [UPDATE_NR_FILTER] (state, nr_name) {
         if (nr_name in state.NRFilter) {
-            state.NRFilter[nr_name] = !state.NRFilter[nr_name]
+            Vue.set(state.NRFilter, nr_name, !state.NRFilter[nr_name])
         }
     },
-    [FLIP_DO_FILTER] (state, do_name) {
+    [UPDATE_DO_FILTER] (state, do_name) {
         if (do_name in state.DOFilter) {
-            state.DOFilter[do_name] = !state.DOFilter[do_name]
+            Vue.set(state.DOFilter, do_name, !state.DOFilter[do_name])
         }
     }
 }
