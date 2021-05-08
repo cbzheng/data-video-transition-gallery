@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div v-for="(nrCardsGroup, NRName) in NRCardsGroups" :key="NRName">
-      <div class="display-reminder">
+    <div v-for="(nrCardsGroup, NRName) in activeNRCardsGroups" :key="NRName">
+      <div v-show="!NRFilter[NRName]" class="display-reminder">
         <div class="reminder-content">
           <div>
             <h3>{{ NRName }}</h3>
@@ -43,12 +43,10 @@ export default {
   components: {
     Card,
   },
-  // props: {
-  //   NRCollection: Array,
-  // },
   data: function () {
     return {
       cards: Array,
+      activeNRCardsGroups: Object,
     };
   },
   computed: {
@@ -57,6 +55,8 @@ export default {
       DOCollection: (state) => state.designSpace.ataOperations,
       ELCollection: (state) => state.designSpace.editorialLayers,
       TransitionCards: (state) => state.designSpace.TransitionCards,
+      NRFilter: (state) => state.filter.NRFilter,
+      DOFilter: (state) => state.filter.DOFilter,
     }),
     NarrativeRelationships: function () {
       if (this.NRCollection == undefined || this.NRCollection[0] == undefined) {
@@ -92,6 +92,40 @@ export default {
 
       return cardsGroups;
     },
+  },
+  watch: {
+    
+    NRCardsGroups: {
+      handler(val) {
+        this.activeNRCardsGroups = {};
+        for (const key in val) {
+          if (
+            Object.hasOwnProperty.call(val, key) &&
+            !this.NRFilter[key]
+          ) {
+            const element = val[key];
+            this.activeNRCardsGroups[key] = element;
+          }
+        }
+      },
+      deep: true,
+    },
+    NRFilter: {
+      handler(val) {
+        this.activeNRCardsGroups = {};
+        console.log("Filter changed")
+        for (const key in val) {
+          if (
+            Object.hasOwnProperty.call(val, key) &&
+            !this.NRFilter[key]
+          ) {
+            const element = val[key];
+            this.activeNRCardsGroups[key] = element;
+          }
+        }
+      },
+      deep: true
+      }
   },
   beforeMount: async function () {
     this.cards = await fetchTransitionCards();
