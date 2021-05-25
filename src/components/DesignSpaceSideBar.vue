@@ -139,6 +139,8 @@ export default {
   padding-left: 1em;
   padding-right: 3em;
   font-size: 14px;
+  position: sticky;
+  position: -webkit-sticky;
 }
 
 .dimension-header {

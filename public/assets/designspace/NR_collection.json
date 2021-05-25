@@ -8,7 +8,11 @@
             "and",
             "similarly"
         ],
-        "NR_desc": "The similarity relationship of two consecutive scenes indicate that they present similar arguments. For indicator, a bar chart reflecting the infected cases number growth in France can be presented after that in Germany, indicating similar trends",
+        "NR_desc": "Two succeeding data facts are logically parallel to each other",
+        "NR_example": {
+            "before": "China's carbon emission is increasing",
+            "after": "United State's carbon emission is also increasing"
+        },
         "NR_num": 15
     },
     {
@@ -19,7 +23,11 @@
             "but",
             "by contrast"
         ],
-        "NR_desc": "Suspense uses retardation to build tension and anticipation. It is extensively used in film-making and is regarded as one of the primary features of cinematic storytelling.",
+        "NR_desc": "Two succeeding data facts present a contradiction between each other",
+        "NR_example": {
+            "before": "India's population rank second in the world",
+            "after": "But India's GDP rank sixth in the world"
+        },
         "NR_num": 8
     },
     {
@@ -31,15 +39,23 @@
             "furthermore",
             "in addition"
         ],
-        "NR_desc": "Comparison facilitates the explanation of similarities and differences by analyzing two or more datasets/data points. As a common means of presenting visualizations, comparison is also effective for data-driven storytelling.",
+        "NR_desc": "The latter data fact add more details to the previous one",
+        "NR_example": {
+            "before": "Chongqing ranked fifth in  traffic congestion among megacities in Asia in 2020",
+            "after": "September is the most congested month in Chongqing in 2020"
+        },
         "NR_num": 9
     },
     {
         "NR_id": 3,
         "NR_tag": "generalization",
         "NR_color": "#e2cc6d",
-        "NR_indicator": "in general",
-        "NR_desc": "Cohering is a visual narrative tactic that augments the continuity of a story by building animated transitions between individual parts. Cohering is a common strategy used in film-making to sew up discrete story pieces and create an intuitive viewing experience.",
+        "NR_indicator": ["in general"],
+        "NR_desc": "The latter data fact is an abstraction of the previous one",
+        "NR_example": {
+            "before": "3.2 billion people in the world own a smartphone in 2019",
+            "after": "The number of smartphone users worldwide continue to increase from 2016 to 2021"
+        },
         "NR_num": 5
     },
     {
@@ -50,7 +66,11 @@
             "because",
             "and so"
         ],
-        "NR_desc": "Ellipsis is used to compact the narratives of a story and deliver the appropriate amount of information to prevent overwhelming the audience. In narratology, subnarratable content, that is, something not worthy of being told as it is too obvious or not interesting, is often left out by the narrator.",
+        "NR_desc": "The latter data fact is caused by the previous one",
+        "NR_example": {
+            "before": "The number of people watching football games is increasing every year",
+            "after": "The price of seats for football games has also increased year by year"
+        },
         "NR_num": 4
     },
     {
@@ -62,7 +82,11 @@
             "before",
             "after"
         ],
-        "NR_desc": "Focalization is a concept from narratology that refers to selecting the perspective through which a narrative is presented. In visual narratives, focalization can be achieved by manipulating the camera angle and scale.",
+        "NR_example": {
+            "before": "The percentage of obesity and overweight in adults were 19.3% in 2013",
+            "after": "In 2018, the percentage of obesity and overweight in adults were 25.6%"
+        },
+        "NR_desc": "One data fact follow the other one according to the order of time",
         "NR_num": 2
     }
 ]

@@ -5,7 +5,9 @@ import {
 
 const state = () => ({
     NRFilter: {},
-    DOFilter: {}
+    DOFilter: {},
+    NRFilterChangeNotifier: 0,
+    DOFilterChangeNotifier: 0
 })
 
 const getters = {
@@ -31,11 +33,13 @@ const mutations = {
         if (nr_name in state.NRFilter) {
             Vue.set(state.NRFilter, nr_name, !state.NRFilter[nr_name])
         }
+        state.NRFilterChangeNotifier += 1
     },
     [UPDATE_DO_FILTER] (state, do_name) {
         if (do_name in state.DOFilter) {
             Vue.set(state.DOFilter, do_name, !state.DOFilter[do_name])
         }
+        state.DOFilterChangeNotifier += 1
     }
 }
 

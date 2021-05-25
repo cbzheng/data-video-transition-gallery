@@ -3,7 +3,10 @@
     <div v-on:click="toggleCard()">
       <transition name="flip">
         <div class="card" :key="cardFlip">
-          <div class="card-header">
+          <div class="card-header"
+          :style="{
+                  backgroundColor: nrColor,
+                }">
             {{ cardTitle }}
           </div>
           <div v-if="!cardFlip">
@@ -60,6 +63,7 @@ export default {
     egSource: String,
     egYear: String,
     egURL: String,
+    nrColor: String
   },
   data: function () {
     return {
@@ -86,8 +90,7 @@ export default {
   border-top-right-radius: 0.375rem;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
-  color: #fff;
-  background-color: #ca5f5f;
+  color: #fff;;
   display: flex;
   flex-direction: row;
 }
@@ -100,8 +103,8 @@ export default {
   margin-left: 0;
   margin-right: 0;
   display: block;
-  width: 330px;
-  height: 450px;
+  width: 280px;
+  height: 400px;
   border-radius: 7px;
   text-align: center;
   line-height: 27px;

@@ -1,0 +1,128 @@
+[
+    {
+        "TE_id": 1,
+        "TE_tag": "morph",
+        "how": "gradually change the shape of visualization elements from one to another",
+        "why": "Seamless transition between visualization elements of old and new data facts. Emphasis the corresponding relationship between two data facts."
+    },
+    {
+        "TE_id": 2,
+        "TE_tag": "contrast cut",
+        "how": "new data fact enters and juxtaposes with the old one",
+        "why": "Seamless transition between visualization elements of old and new data facts. Emphasis the corresponding relationship between two data facts."
+    },
+    {
+        "TE_id": 3,
+        "TE_tag": "cut on action(vis element)",
+        "how": "one or more visualization elements of the old data fact move(e.g., Fly, drop) to the new data fact and change into visualization elements in the new data fact; the data fact changes during the movement of the visualization element(s)",
+        "why": "Seamless transition between visualization elements of old and new data facts. Emphasis the corresponding relationship between two data facts."
+    },
+    {
+        "TE_id": 4,
+        "TE_tag": "cut on action(auxiliary element)",
+        "how": "one or more auxiliary elements of the old data fact move(e.g., Fly, drop) to the new data fact; the data fact changes during the movement of the auxiliary element(s)",
+        "why": "Seamless transition between visualization elements of old and new data facts. Emphasis the corresponding relationship between two data facts."
+    },
+    {
+        "TE_id": 5,
+        "TE_tag": "graphics match cut",
+        "how": "the old data fact change to the new data fact by a hard cut or dissolve, maintaining the positions and shapes of some new visualization elements similar to the positions and shapes of some elements in the old data fact",
+        "why": "Seamless transition between visualization elements of old and new data facts. Emphasis the corresponding relationship between two data facts."
+    },
+    {
+        "TE_id": 6,
+        "TE_tag": "action match cut",
+        "how": "",
+        "why": "Seamless transition between visualization elements of old and new data facts. Emphasis the corresponding relationship between two data facts."
+    },
+    {
+        "TE_id": 7,
+        "TE_tag": "cross cut",
+        "how": "the scene changes back and forth between the old data fact and the new data fact; every switch, the new and old data fact would change incrementally(e.g., New visualization elements appear, some elements in motion, etc. )",
+        "why": "Seamless transition between visualization elements of old and new data facts. Emphasis the corresponding relationship between two data facts."
+    },
+    {
+        "TE_id": 8,
+        "TE_tag": "progressive cut",
+        "how": "by rapidly traversing the intermediate states of two data facts, the old data fact change to the new data fact",
+        "why": "Seamless transition between visualization elements of old and new data facts. Emphasis the corresponding relationship between two data facts."
+    },
+    {
+        "TE_id": 9,
+        "TE_tag": "jump cut",
+        "how": "pick some discrete snippet from the continuous intermediate states between two data facts; the old data fact change to the new data fact by jumping through these snippets",
+        "why": "Seamless transition between visualization elements of old and new data facts. Emphasis the corresponding relationship between two data facts."
+    },
+    {
+        "TE_id": 10,
+        "TE_tag": "insert shot",
+        "how": "the camera moves close to and focuses on an element in the old data fact; the new data fact appears within this element.",
+        "why": "Seamless transition between visualization elements of old and new data facts. Emphasis the corresponding relationship between two data facts."
+    },
+    {
+        "TE_id": 11,
+        "TE_tag": "establishing shot",
+        "how": "the camera moves backward to show a larger scene; elements of the new data fact appear within the larger scene.",
+        "why": "Seamless transition between visualization elements of old and new data facts. Emphasis the corresponding relationship between two data facts."
+    },
+    {
+        "TE_id": 12,
+        "TE_tag": "invisible cut",
+        "how": "the camera moves until elements in the original scene are hard to observe (e.g., Move too close to see), then change to the new data fact.",
+        "why": "Seamless transition between visualization elements of old and new data facts. Emphasis the corresponding relationship between two data facts."
+    },
+    {
+        "TE_id": 13,
+        "TE_tag": "dissolve(async)",
+        "how": "after the old scene faded out halfway and stopped, the new scene fades in and overlaps on top of the old scene.",
+        "why": "Seamless transition between visualization elements of old and new data facts. Emphasis the corresponding relationship between two data facts."
+    },
+    {
+        "TE_id": 14,
+        "TE_tag": "dissolve(sync)",
+        "how": "the old scene fades out, and at the same time, the new scene fades in",
+        "why": "Seamless transition between visualization elements of old and new data facts. Emphasis the corresponding relationship between two data facts."
+    },
+    {
+        "TE_id": 15,
+        "TE_tag": "fade",
+        "how": "after the old scene fades out, the new scene fades in",
+        "why": "Seamless transition between visualization elements of old and new data facts. Emphasis the corresponding relationship between two data facts."
+    },
+    {
+        "TE_id": 16,
+        "TE_tag": "wipe",
+        "how": "the old scene slides away and the new scene slides in",
+        "why": "Seamless transition between visualization elements of old and new data facts. Emphasis the corresponding relationship between two data facts."
+    },
+    {
+        "TE_id": 17,
+        "TE_tag": "cut away",
+        "how": "insert a scene with explanatory auxiliary elements between the new and old scene",
+        "why": "Seamless transition between visualization elements of old and new data facts. Emphasis the corresponding relationship between two data facts."
+    },
+    {
+        "TE_id": 18,
+        "TE_tag": "defocus",
+        "how": "the old scene blurs to the new one",
+        "why": "Seamless transition between visualization elements of old and new data facts. Emphasis the corresponding relationship between two data facts."
+    },
+    {
+        "TE_id": 19,
+        "TE_tag": "invisible cut(wipe)",
+        "how": "animate some shape to cover up the old scene, then animate to reveal the new scene",
+        "why": "Seamless transition between visualization elements of old and new data facts. Emphasis the corresponding relationship between two data facts."
+    },
+    {
+        "TE_id": 20,
+        "TE_tag": "crane shot",
+        "how": "",
+        "why": "Seamless transition between visualization elements of old and new data facts. Emphasis the corresponding relationship between two data facts."
+    },
+    {
+        "TE_id": 21,
+        "TE_tag": "flashback",
+        "how": "",
+        "why": "Seamless transition between visualization elements of old and new data facts. Emphasis the corresponding relationship between two data facts."
+    }
+]

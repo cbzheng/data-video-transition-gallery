@@ -1,7 +1,7 @@
 [
     {
         "DO_id": 0,
-        "DO_tag": "slice",
+        "DO_tag": "dimension walk",
         "DO_color": "#ca5f5f",
         "DO_desc": "change the selection of value in one dimension",
         "DO_example": "The trend of the infected cases number in France -> the trend of the infected cases number in Germany",
@@ -9,7 +9,7 @@
     },
     {
         "DO_id": 1,
-        "DO_tag": "drill-across",
+        "DO_tag": "measure walk",
         "DO_color": "#ca5f5f",
         "DO_desc": "change the selection of value in one dimension",
         "DO_example": "The trend of the infected cases number in France -> the trend of the infected cases number in Germany",
@@ -41,7 +41,7 @@
     },
     {
         "DO_id": 5,
-        "DO_tag": "remove",
+        "DO_tag": "drop",
         "DO_color": "#ca5f5f",
         "DO_desc": "change the selection of value in one dimension",
         "DO_example": "The trend of the infected cases number in France -> the trend of the infected cases number in Germany",

@@ -4,9 +4,44 @@
       <div v-show="!NRFilter[NRName]" class="display-reminder">
         <div class="reminder-content">
           <div>
-            <h3>{{ NRName }}</h3>
+            <p class="reminder-name"><b>{{ NRName }}</b></p>
           </div>
-          <p>{{ NarrativeRelationships[NRName].NR_desc }}</p>
+          <div class="nr_descriptions">
+            <p>
+              <span
+                class="nr-desc-key"
+                :style="{
+                  backgroundColor: NarrativeRelationships[NRName].NR_color,
+                }"
+                >Definition</span
+              >
+              {{ NarrativeRelationships[NRName].NR_desc }}
+            </p>
+            <p>
+              <span
+                class="nr-desc-key"
+                :style="{
+                  backgroundColor: NarrativeRelationships[NRName].NR_color,
+                }"
+                >Indicating Words</span
+              >
+              {{
+                '"' +
+                NarrativeRelationships[NRName].NR_indicator.join('", "') +
+                '"'
+              }}
+            </p>
+            <p>
+              <span
+                class="nr-desc-key"
+                :style="{
+                  backgroundColor: NarrativeRelationships[NRName].NR_color,
+                }"
+                >Example</span
+              >
+              {{ NarrativeRelationships[NRName].NR_example.before + " -> " + NarrativeRelationships[NRName].NR_example.after}}
+            </p>
+          </div>
         </div>
       </div>
 
@@ -25,6 +60,7 @@
               :egSource="card.eg_source"
               :egYear="card.eg_year"
               :egURL="card.eg_url"
+              :nrColor="NarrativeRelationships[NRName].NR_color"
             />
           </div>
         </div>
@@ -57,6 +93,8 @@ export default {
       TransitionCards: (state) => state.designSpace.TransitionCards,
       NRFilter: (state) => state.filter.NRFilter,
       DOFilter: (state) => state.filter.DOFilter,
+      NRFilterChangeNotifier: (state) => state.filter.NRFilterChangeNotifier,
+      DOFilterChangeNotifier: (state) => state.filter.DOFilterChangeNotifier,
     }),
     NarrativeRelationships: function () {
       if (this.NRCollection == undefined || this.NRCollection[0] == undefined) {
@@ -94,15 +132,11 @@ export default {
     },
   },
   watch: {
-    
     NRCardsGroups: {
       handler(val) {
         this.activeNRCardsGroups = {};
         for (const key in val) {
-          if (
-            Object.hasOwnProperty.call(val, key) &&
-            !this.NRFilter[key]
-          ) {
+          if (Object.hasOwnProperty.call(val, key) && !this.NRFilter[key]) {
             const element = val[key];
             this.activeNRCardsGroups[key] = element;
           }
@@ -110,22 +144,15 @@ export default {
       },
       deep: true,
     },
-    NRFilter: {
-      handler(val) {
-        this.activeNRCardsGroups = {};
-        console.log("Filter changed")
-        for (const key in val) {
-          if (
-            Object.hasOwnProperty.call(val, key) &&
-            !this.NRFilter[key]
-          ) {
-            const element = val[key];
-            this.activeNRCardsGroups[key] = element;
-          }
+    NRFilterChangeNotifier: function () {
+      this.activeNRCardsGroups = {};
+      for (const key in this.NRCardsGroups) {
+        if (!this.NRFilter[key]) {
+          const element = this.NRCardsGroups[key];
+          this.activeNRCardsGroups[key] = element;
         }
-      },
-      deep: true
       }
+    },
   },
   beforeMount: async function () {
     this.cards = await fetchTransitionCards();
@@ -134,6 +161,21 @@ export default {
 </script>
 
 <style scoped>
+.reminder-name {
+  font-size: 20px;
+}
+
+.nr-desc-key {
+  color: white;
+  border: 1px solid;
+  border-radius: 10px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  font-size: 14px;
+}
+
 .DO-reminder {
   text-align: left;
   margin-left: 4rem;
@@ -202,5 +244,10 @@ export default {
   margin: 0;
   position: relative;
   z-index: 10;
+}
+
+.nr_descriptions {
+  margin-top: 1.2em;
+  line-height: 1em;
 }
 </style>

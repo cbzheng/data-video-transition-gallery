@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <GalleryNavBar />
-    <DesignSpace />
+    <DesignSpace id="design-space-gallery" />
   </div>
 </template>
 
@@ -25,5 +25,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+#design-space-gallery {
+  position: fixed
 }
 </style>

@@ -4,6 +4,9 @@
       <b-navbar-brand href="#">Transitions in Data Videos</b-navbar-brand>
     <b-navbar-nav>
       <b-nav-item href="#">Home</b-nav-item>
+      <b-nav-item-dropdown text="Workshop">
+        <b-dropdown-item>dataset</b-dropdown-item>
+      </b-nav-item-dropdown>
       <b-nav-item href="#">Dataset</b-nav-item>
       <b-nav-item href="#">Download</b-nav-item>
       <b-nav-item href="#">About</b-nav-item>
