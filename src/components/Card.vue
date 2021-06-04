@@ -86,6 +86,7 @@ export default {
 .card-header {
   padding: 0.25rem 1rem 0.5rem;
   border: transparent;
+  margin-top: 1em;
   border-top-left-radius: 0.375rem;
   border-top-right-radius: 0.375rem;
   border-bottom-right-radius: 0;
@@ -103,8 +104,8 @@ export default {
   margin-left: 0;
   margin-right: 0;
   display: block;
-  width: 280px;
-  height: 400px;
+  width: 300px;
+  height: 450px;
   border-radius: 7px;
   text-align: center;
   line-height: 27px;
@@ -125,7 +126,7 @@ export default {
 }
 
 .card-deck .card-body-subtitle {
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   font-weight: 600;
 }
 
@@ -135,7 +136,7 @@ export default {
 }
 
 .card-deck .card-body-text {
-  font-size: 0.75rem;
+  font-size: 0.65rem;
   font-weight: 400;
   line-height: 1rem;
 }

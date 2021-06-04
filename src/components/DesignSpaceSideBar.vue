@@ -1,5 +1,11 @@
 <template>
   <div id="ds-sidebar">
+    <div class="dimention search-bar-div">
+      <b-nav-form class="dimension-header">
+        <b-form-input class="mr-sm-2 search-bar" placeholder="Search">
+        </b-form-input>
+      </b-nav-form>
+    </div>
     <div id="n-relationship" class="dimention">
       <div class="dimension-header" v-b-toggle.collapse-nr>
         Narrative Relationship
@@ -76,20 +82,19 @@
     <div id="transition-effect" class="dimention">
       <div class="dimension-header">Transition Effects</div>
     </div>
-    <div id="transition-effect" class="dimention">
+    <div id="editorial-layer" class="dimention">
       <div class="dimension-header">Editorial Layers</div>
       <div v-for="EL in EditorialLayers" :key="EL.EL_tag">
-        <a class="sidebar-btn filter-btn active">
-          <span class="filter-btn-symbol"></span>
-          <span class="filter-btn-text">{{ EL.EL_tag }}</span>
-        </a>
+        <div class="editorial-layer-line">
+        <span class="editorial-layer-key">{{ EL.EL_tag }}</span>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import {  mapState } from "vuex";
+import { mapState } from "vuex";
 
 export default {
   name: "DesignSpaceSideBar",
@@ -105,15 +110,15 @@ export default {
         state.designSpace.narrativeRelationships,
       DataOperations: (state) => state.designSpace.dataOperations,
       EditorialLayers: (state) => state.designSpace.editorialLayers,
-    })
+    }),
   },
   methods: {
-    NRSelectChange: function(NRTag) {
-      this.$store.commit("UPDATE_NR_FILTER", NRTag)
+    NRSelectChange: function (NRTag) {
+      this.$store.commit("UPDATE_NR_FILTER", NRTag);
     },
-    DOSelectChange: function(DOTag) {
-      this.$store.commit("UPDATE_DO_FILTER", DOTag)
-    }
+    DOSelectChange: function (DOTag) {
+      this.$store.commit("UPDATE_DO_FILTER", DOTag);
+    },
   },
   watch: {
     NarrativeRelationships(value) {
@@ -133,6 +138,42 @@ export default {
 </script>
 
 <style scoped>
+.search-bar-div {
+  width: 80% ;
+}
+
+.search-bar {
+  font-size: 10px;
+}
+
+.editorial-layer-line {
+  margin-bottom: 5px;
+}
+
+.editorial-layer-key {
+  background-color: rgb(121, 190, 209);
+  color: white;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  font-size: 14px;
+  margin-left: 1em;
+}
+
+#editorial-layer {
+  position: absolute;
+  bottom: 6em;
+  border: transparent;
+  box-shadow: 3px 4px 5px 4px rgba(92, 92, 92, 0.08);
+  border-radius: 0.375rem;
+  width: 80%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
 #ds-sidebar {
   padding-top: 2em;
   padding-bottom: 2em;

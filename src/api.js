@@ -22,3 +22,9 @@ export const fetchTransitionCards = async () => {
     let resp = await fetch(filename)
     return await resp.json()
 }
+
+export const fetchDSTransitionEffects = async () => {
+    let filename = 'assets/designspace/TE_collection.json'
+    let resp = await fetch(filename)
+    return await resp.json()
+}

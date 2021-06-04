@@ -54,8 +54,8 @@
             <Card
               :cardTitle="card.card_title"
               :cardID="card.card_id"
-              :how="card.how"
-              :why="card.why"
+              :how="TransitionEffectDict[card.TE_tag].how"
+              :why="TransitionEffectDict[card.TE_tag].why"
               :egTitle="card.eg_title"
               :egSource="card.eg_source"
               :egYear="card.eg_year"
@@ -90,12 +90,23 @@ export default {
       NRCollection: (state) => state.designSpace.narrativeRelationships,
       DOCollection: (state) => state.designSpace.ataOperations,
       ELCollection: (state) => state.designSpace.editorialLayers,
-      TransitionCards: (state) => state.designSpace.TransitionCards,
+      TransitionEffects: (state) => state.designSpace.transitionEffects,
+      TransitionCards: (state) => state.designSpace.transitionCards,
       NRFilter: (state) => state.filter.NRFilter,
       DOFilter: (state) => state.filter.DOFilter,
       NRFilterChangeNotifier: (state) => state.filter.NRFilterChangeNotifier,
       DOFilterChangeNotifier: (state) => state.filter.DOFilterChangeNotifier,
     }),
+    TransitionEffectDict: function() {
+      const dict = {}
+      this.TransitionEffects.forEach((effect) => {
+        dict[effect.TE_tag] = {
+          "how": effect.how,
+          "why": effect.why
+        }
+      })
+      return dict;
+    },
     NarrativeRelationships: function () {
       if (this.NRCollection == undefined || this.NRCollection[0] == undefined) {
         return {};
