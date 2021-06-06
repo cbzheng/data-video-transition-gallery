@@ -28,3 +28,9 @@ export const fetchDSTransitionEffects = async () => {
     let resp = await fetch(filename)
     return await resp.json()
 }
+
+export const fetchWorkshopDataset = async (name) => {
+    let filename = 'assets/datasets/' + name + '.json'
+    let resp = await fetch(filename)
+    return await resp.json()
+}

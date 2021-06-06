@@ -3,6 +3,7 @@ import Vue from 'vue'
 import filter from './modules/filter'
 import designSpace from './modules/designSpace'
 import pageManager from './modules/pageManager'
+import workshop from './modules/workshop'
 
 const debug = process.env.NODE_ENV !== 'production'
 
@@ -12,7 +13,8 @@ export default new Vuex.Store({
     modules: {
       filter,
       designSpace,
-      pageManager
+      pageManager,
+      workshop
     },
     strict: debug,
   })

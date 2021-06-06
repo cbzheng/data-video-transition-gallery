@@ -13,3 +13,6 @@ export const SET_TRANSITION_EFFECTS = "SET_TRANSITION_EFFECTS"
 
 // Page Management Mutations
 export const SET_CURRENT_PAGE = "SET_CURRENT_PAGE"
+
+// Workshop Mutation
+export const ADD_DATASET = "ADD_DATASET"

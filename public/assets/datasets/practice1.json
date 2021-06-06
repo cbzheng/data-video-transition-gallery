@@ -1,0 +1,24 @@
+[
+    {   
+        "id": "fact1",
+        "fact": "There are 4 weight categories and the Obesity is with BMI more than 30.0", 
+        "fact type": "Categorization",
+        "items": [
+            { "Category": "Obesity", "BMI Range": ">30.0"},
+            { "Category": "Overweight", "BMI Range": "25 - 29.9"},
+            { "Category": "Normal", "BMI Range":"18.5-24.9"},
+            { "Category": "Underweight", "BMI Range": "<18.5"}
+        ]
+    },
+    {
+        "id": "fact2",
+        "fact": "There are 4 weight categories and the Obesity is with BMI more than 30.0", 
+        "fact type": "Categorization",
+        "items": [
+            { "Category": "Obesity", "BMI Range": ">30.0"},
+            { "Category": "Overweight", "BMI Range": "25 - 29.9"},
+            { "Category": "Normal", "BMI Range":"18.5-24.9"},
+            { "Category": "Underweight", "BMI Range": "<18.5"}
+        ]
+    }
+]
