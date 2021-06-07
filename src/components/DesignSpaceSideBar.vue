@@ -10,72 +10,40 @@
       <div class="dimension-header" v-b-toggle.collapse-nr>
         Narrative Relationship
       </div>
-      <b-collapse id="collapse-nr" class="mt-2">
-        <b-card>
-          <p class="card-text"><b>Narrative Relationship</b> refers to</p>
-        </b-card>
-      </b-collapse>
-      <div>
-        <div v-for="NR in NarrativeRelationships" :key="NR.NR_tag">
-          <a href="#" class="sidebar-btn scrollSpy-btn default">
-            <b-container>
-              <b-row>
-                <b-col cols="8">
-                  <span
-                    class="scrollSpy-btn-symbol"
-                    :style="{ backgroundColor: NR.NR_color }"
-                  ></span>
-                  <span
-                    class="scrollSpy-btn-text"
-                    v-b-toggle="'collapse' + NR.NR_tag"
-                    >{{ NR.NR_tag }}</span
-                  >
-                </b-col>
-                <b-col>
-                  <span class="scrollSpy-btn-checkbox">
-                    <b-form-checkbox
-                      switch
-                      v-model="NRSelect[NR.NR_tag]"
-                      v-on:change="NRSelectChange(NR.NR_tag)"
-                    ></b-form-checkbox>
-                  </span>
-                </b-col>
-              </b-row>
-            </b-container>
-          </a>
-          <b-collapse :id="'collapse' + NR.NR_tag" class="mt-2">
-            <b-card>
-              <p class="card-text">{{ NR.NR_desc }}</p>
-            </b-card>
-          </b-collapse>
-        </div>
+      <div class="sidebar-panel-group">
+        <a
+          :href="'#' + NR.NR_tag"
+          v-for="NR in NarrativeRelationships"
+          :key="NR.NR_tag"
+          class="sidebar-btn scrollSpy-btn default"
+        >
+          <span
+            class="scrollSpy-btn-symbol"
+            :style="{ backgroundColor: NR.NR_color }"
+          ></span>
+          <span
+            class="scrollSpy-btn-text"
+            v-b-toggle="'collapse' + NR.NR_tag"
+            >{{ NR.NR_tag }}</span
+          >
+          <span class="scrollSpy-btn-stop"></span>
+        </a>
       </div>
     </div>
     <div id="data-operation" class="dimention">
       <div class="dimension-header">Data Operation</div>
-      <div>
-        <div v-for="DO in DataOperations" :key="DO.DO_tag">
-          <a href="#" class="sidebar-btn scrollSpy-btn default">
-            <b-container>
-              <b-row>
-                <b-col cols="8">
-                  <span
-                    class="scrollSpy-btn-symbol"
-                    :style="{ backgroundColor: DO.DO_color }"
-                  ></span>
-                  <span class="scrollSpy-btn-text">{{ DO.DO_tag }}</span>
-                </b-col>
-                <b-col>
-                  <span class="scrollSpy-btn-checkbox">
-                    <b-form-checkbox
-                      switch
-                      v-model="DOSelect[DO.DO_tag]"
-                    ></b-form-checkbox>
-                  </span>
-                </b-col>
-              </b-row>
-            </b-container>
-          </a>
+      <div class="sidebar-panel-group">
+        <div
+          href="#"
+          class="sidebar-btn scrollSpy-btn default"
+          v-for="DO in DataOperations"
+          :key="DO.DO_tag"
+        >
+          <span
+            class="scrollSpy-btn-symbol"
+            :style="{ backgroundColor: DO.DO_color }"
+          ></span>
+          <span class="scrollSpy-btn-text">{{ DO.DO_tag }}</span>
         </div>
       </div>
     </div>
@@ -86,7 +54,7 @@
       <div class="dimension-header">Editorial Layers</div>
       <div v-for="EL in EditorialLayers" :key="EL.EL_tag">
         <div class="editorial-layer-line">
-        <span class="editorial-layer-key">{{ EL.EL_tag }}</span>
+          <span class="editorial-layer-key">{{ EL.EL_tag }}</span>
         </div>
       </div>
     </div>
@@ -139,7 +107,7 @@ export default {
 
 <style scoped>
 .search-bar-div {
-  width: 80% ;
+  width: 80%;
 }
 
 .search-bar {
@@ -208,6 +176,7 @@ export default {
 }
 
 .sidebar-panel-group .sidebar-btn {
+  text-decoration: none;
   border-color: transparent;
   height: 1.875rem;
   padding: 0.375rem 0.5rem 0.375rem 0.75rem;
@@ -273,5 +242,25 @@ export default {
   align-self: center;
   margin-left: 1px;
   margin-right: 7px;
+}
+
+
+.scrollSpy-btn {
+  transition-duration: 0.2s;
+  margin-left: 0.2em;
+  padding-left: 0.8em;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+  margin-bottom: 0.3em;
+  color: black;
+}
+
+.scrollSpy-btn-text {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: #000000;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 </style>>

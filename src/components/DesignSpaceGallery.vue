@@ -1,10 +1,18 @@
 <template>
   <div>
-    <div v-for="(nrCardsGroup, NRName) in activeNRCardsGroups" :key="NRName">
+    <div
+      v-for="(nrCardsGroup, NRName) in activeNRCardsGroups"
+      :key="NRName"
+      :id="NRName"
+      :class="NRName"
+    >
+      <a :name="NRName"></a>
       <div v-show="!NRFilter[NRName]" class="display-reminder">
         <div class="reminder-content">
           <div>
-            <p class="reminder-name"><b>{{ NRName }}</b></p>
+            <p class="reminder-name">
+              <b>{{ NRName }}</b>
+            </p>
           </div>
           <div class="nr_descriptions">
             <p>
@@ -39,7 +47,11 @@
                 }"
                 >Example</span
               >
-              {{ NarrativeRelationships[NRName].NR_example.before + " -> " + NarrativeRelationships[NRName].NR_example.after}}
+              {{
+                NarrativeRelationships[NRName].NR_example.before +
+                " -> " +
+                NarrativeRelationships[NRName].NR_example.after
+              }}
             </p>
           </div>
         </div>
@@ -97,14 +109,14 @@ export default {
       NRFilterChangeNotifier: (state) => state.filter.NRFilterChangeNotifier,
       DOFilterChangeNotifier: (state) => state.filter.DOFilterChangeNotifier,
     }),
-    TransitionEffectDict: function() {
-      const dict = {}
+    TransitionEffectDict: function () {
+      const dict = {};
       this.TransitionEffects.forEach((effect) => {
         dict[effect.TE_tag] = {
-          "how": effect.how,
-          "why": effect.why
-        }
-      })
+          how: effect.how,
+          why: effect.why,
+        };
+      });
       return dict;
     },
     NarrativeRelationships: function () {
