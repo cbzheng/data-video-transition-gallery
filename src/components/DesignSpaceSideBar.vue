@@ -39,10 +39,11 @@
           v-for="DO in DataOperations"
           :key="DO.DO_tag"
         >
-          <span
-            class="scrollSpy-btn-symbol"
-            :style="{ backgroundColor: DO.DO_color }"
-          ></span>
+          <img
+            :src="'./assets/designspace/DO_icons/' + DO.DO_tag + '.svg'"
+            class="data-operation-symbol"
+            :style="{ backgroundColor: '#9ecae1' }"
+          />
           <span class="scrollSpy-btn-text">{{ DO.DO_tag }}</span>
         </div>
       </div>
@@ -158,6 +159,7 @@ export default {
   font-weight: 600;
   padding-left: 1em;
   padding-bottom: 0.5em;
+  padding-top: 1em;
 }
 
 .dimention {
@@ -232,10 +234,11 @@ export default {
   }
 }
 
-.scrollSpy-btn-symbol {
+.data-operation-symbol {
   content: "";
-  width: 0.75rem;
-  height: 0.75rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0.1rem;
   border-radius: 50vh;
   display: inline-block;
   flex-shrink: 0;
@@ -244,6 +247,17 @@ export default {
   margin-right: 7px;
 }
 
+.scrollSpy-btn-symbol {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50vh;
+  display: inline-block;
+  flex-shrink: 0;
+  align-self: center;
+  margin-left: 1px;
+  margin-right: 7px;
+}
 
 .scrollSpy-btn {
   transition-duration: 0.2s;
@@ -256,11 +270,11 @@ export default {
 }
 
 .scrollSpy-btn-text {
-    font-size: 0.75rem;
-    font-weight: 400;
-    color: #000000;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #000000;
+  overflow: visible;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 </style>>

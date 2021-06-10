@@ -1,23 +1,32 @@
 <template>
   <div>
-    <div v-on:click="toggleCard()">
+    <div>
       <transition name="flip">
         <div class="card" :key="cardFlip">
-          <div class="card-header"
-          :style="{
-                  backgroundColor: nrColor,
-                }">
-            {{ cardTitle }}
+          <div
+            class="card-header"
+            :style="{
+              backgroundColor: nrColor,
+            }"
+          >
+            {{ card.card_title }}
           </div>
           <div v-if="!cardFlip">
             <img
               class="card-img front-preview"
               :src="
                 './assets/card/card-front/card-front-static/front_' +
-                cardID +
+                card.card_id +
                 '.png'
               "
             />
+            <div id="card-data-operations-preference">
+              <CardDataTag
+                :dataOperationName="card.DO_tag"
+                appearTimes="1"
+                color="blue"
+              />
+            </div>
             <div class="card-body">
               <div class="card-body-subtitle">HOW</div>
               <div class="card-body-text">
@@ -33,16 +42,36 @@
             <img
               class="card-img front-gif"
               :src="
-                './assets/card/card-back/card-back-gif/back_' + cardID + '.gif'
+                './assets/card/card-back/card-back-gif/back_' +
+                card.card_id +
+                '.gif'
               "
               alt="./assets/image/fail_loading.svg"
             />
             <div class="card-body">
-              <div class="card-body-subtitle">{{ egTitle }}</div>
+              <div class="card-body-subtitle">{{ card.eg_title }}</div>
               <div class="card-body-text">
-                  <div><span><b>Source</b></span> {{egSource}}</div>
-                  <div><span><b>Published Year</b></span> {{egYear}}</div>
+                <div>
+                  <span><b>Source</b></span> {{ card.eg_source }}
+                </div>
+                <div>
+                  <span><b>Published Year</b></span> {{ card.eg_year }}
+                </div>
               </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div v-if="!cardFlip">
+              <span class="card-footer-num">No. {{ card.card_id }}</span>
+              <span class="card-footer-btn" v-on:click="toggleCard()">
+                view examples
+              </span>
+            </div>
+            <div v-else>
+              <span class="card-footer-num">No. {{ card.card_id }}</span>
+              <span class="card-footer-btn" v-on:click="toggleCard()">
+                back to front
+              </span>
             </div>
           </div>
         </div>
@@ -52,18 +81,18 @@
 </template>
 
 <script>
+import CardDataTag from "./CardDataTag.vue";
+
 export default {
   name: "Card",
+  components: {
+    CardDataTag,
+  },
   props: {
-    cardID: Number,
-    cardTitle: String,
     how: String,
     why: String,
-    egTitle: String,
-    egSource: String,
-    egYear: String,
-    egURL: String,
-    nrColor: String
+    nrColor: String,
+    card: Object,
   },
   data: function () {
     return {
@@ -91,7 +120,7 @@ export default {
   border-top-right-radius: 0.375rem;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
-  color: #fff;;
+  color: #fff;
   display: flex;
   flex-direction: row;
 }
@@ -104,12 +133,11 @@ export default {
   margin-left: 0;
   margin-right: 0;
   display: block;
-  width: 300px;
-  height: 450px;
+  width: 360px;
+  height: 520px;
   border-radius: 7px;
   text-align: center;
   line-height: 27px;
-  cursor: pointer;
   position: relative;
   font-weight: 600;
   font-size: 20px;
@@ -118,6 +146,7 @@ export default {
 }
 
 .card-deck .card-body {
+  flex: 1 1 auto;
   color: #000000;
   padding: 0 1rem;
   margin: 1rem 0;
@@ -136,7 +165,7 @@ export default {
 }
 
 .card-deck .card-body-text {
-  font-size: 0.65rem;
+  font-size: 0.8rem;
   font-weight: 400;
   line-height: 1rem;
 }
@@ -164,5 +193,43 @@ export default {
 .flip-leave {
   transform: rotateY(180deg);
   opacity: 0;
+}
+
+#card-data-operations-preference {
+  text-align: left;
+  padding-top: 0.5em;
+}
+
+.card-footer {
+  height: 3.5rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  text-align: left;
+}
+
+.card-deck .card-footer-num,
+.card-deck .card-footer a {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.card-footer-btn {
+  background-color: rgb(240, 240, 240);
+  color: black;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  font-size: 1rem;
+  font-weight: normal;
+  margin-left: 0.5em;
+  position: fixed;
+  right: 1rem;
+  cursor: pointer;
 }
 </style>

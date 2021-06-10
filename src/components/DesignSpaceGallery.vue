@@ -10,9 +10,15 @@
       <div v-show="!NRFilter[NRName]" class="display-reminder">
         <div class="reminder-content">
           <div>
-            <p class="reminder-name">
+            <span
+              class="scrollSpy-btn-symbol"
+              :style="{
+                backgroundColor: NarrativeRelationships[NRName].NR_color,
+              }"
+            ></span>
+            <span class="reminder-name">
               <b>{{ NRName }}</b>
-            </p>
+            </span>
           </div>
           <div class="nr_descriptions">
             <p>
@@ -56,26 +62,17 @@
           </div>
         </div>
       </div>
-
-      <div v-for="(doCardGroup, DOName) in nrCardsGroup" :key="DOName">
-        <div class="DO-reminder">
-          {{ DOName }}
-        </div>
-        <div class="card-deck">
-          <div v-for="card in doCardGroup" :key="card.card_title">
-            <Card
-              :cardTitle="card.card_title"
-              :cardID="card.card_id"
-              :how="TransitionEffectDict[card.TE_tag].how"
-              :why="TransitionEffectDict[card.TE_tag].why"
-              :egTitle="card.eg_title"
-              :egSource="card.eg_source"
-              :egYear="card.eg_year"
-              :egURL="card.eg_url"
-              :nrColor="NarrativeRelationships[NRName].NR_color"
-            />
-          </div>
-        </div>
+      <div class="card-deck">
+        <!-- <div v-for="(doCardGroup, DOName) in nrCardsGroup" :key="DOName"> -->
+        <Card
+          v-for="card in nrCardsGroup"
+          :key="card.card_title"
+          :card="card"
+          :how="TransitionEffectDict[card.TE_tag].how"
+          :why="TransitionEffectDict[card.TE_tag].why"
+          :nrColor="NarrativeRelationships[NRName].NR_color"
+        />
+        <!-- </div> -->
       </div>
     </div>
   </div>
@@ -140,15 +137,15 @@ export default {
         const card = this.cards[index];
         const tag = card.NR_tag;
         if (!(tag in cardsGroups)) {
-          cardsGroups[tag] = {};
+          cardsGroups[tag] = [];
         }
 
         const nrGroup = cardsGroups[tag];
-        const doTag = card.DO_tag;
-        if (!(doTag in nrGroup)) {
-          nrGroup[doTag] = [];
-        }
-        nrGroup[doTag].push(card);
+        // const doTag = card.DO_tag;
+        // if (!(doTag in nrGroup)) {
+        //   nrGroup[doTag] = [];
+        // }
+        nrGroup.push(card);
       }
 
       return cardsGroups;
@@ -272,5 +269,17 @@ export default {
 .nr_descriptions {
   margin-top: 1.2em;
   line-height: 1em;
+}
+
+.scrollSpy-btn-symbol {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50vh;
+  display: inline-block;
+  flex-shrink: 0;
+  align-self: center;
+  margin-left: 1px;
+  margin-right: 7px;
 }
 </style>
