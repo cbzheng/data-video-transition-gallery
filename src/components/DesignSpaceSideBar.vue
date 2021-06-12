@@ -1,55 +1,87 @@
 <template>
   <div id="ds-sidebar">
     <div class="dimention search-bar-div">
-      <b-nav-form class="dimension-header">
+      <b-nav-form >
         <b-form-input class="mr-sm-2 search-bar" placeholder="Search">
         </b-form-input>
       </b-nav-form>
     </div>
     <div id="n-relationship" class="dimention">
-      <div class="dimension-header" v-b-toggle.collapse-nr>
-        Narrative Relationship
+      <div
+        class="dimension-header"
+        :class="nrVisible ? null : 'collapsed'"
+        :aria-expanded="nrVisible ? 'true' : 'false'"
+        aria-controls="collapse-nr"
+        @click="onClickNR()"
+      >
+        <span> Narrative Relationship </span>
+        <span
+          class="dimension-head-stop"
+          :class="!nrVisible ? null : 'focused-stop'"
+        ></span>
       </div>
-      <div class="sidebar-panel-group">
-        <a
-          :href="'#' + NR.NR_tag"
-          v-for="NR in NarrativeRelationships"
-          :key="NR.NR_tag"
-          class="sidebar-btn scrollSpy-btn default"
-        >
-          <span
-            class="scrollSpy-btn-symbol"
-            :style="{ backgroundColor: NR.NR_color }"
-          ></span>
-          <span
-            class="scrollSpy-btn-text"
-            v-b-toggle="'collapse' + NR.NR_tag"
-            >{{ NR.NR_tag }}</span
+      <b-collapse id="collapse-nr" v-model="nrVisible" class="mt-2">
+        <div class="sidebar-panel-group">
+          <a
+            :href="'#' + NR.NR_tag"
+            v-for="NR in NarrativeRelationships"
+            :key="NR.NR_tag"
+            class="sidebar-btn scrollSpy-btn default"
           >
-          <span class="scrollSpy-btn-stop"></span>
-        </a>
-      </div>
+            <span
+              class="scrollSpy-btn-symbol"
+              :style="{ backgroundColor: NR.NR_color }"
+            ></span>
+            <span
+              class="scrollSpy-btn-text"
+              v-b-toggle="'collapse' + NR.NR_tag"
+              >{{ NR.NR_tag }}</span
+            >
+            <span class="scrollSpy-btn-stop"></span>
+          </a>
+        </div>
+      </b-collapse>
     </div>
     <div id="data-operation" class="dimention">
-      <div class="dimension-header">Data Operation</div>
-      <div class="sidebar-panel-group">
-        <div
-          href="#"
-          class="sidebar-btn scrollSpy-btn default"
-          v-for="DO in DataOperations"
-          :key="DO.DO_tag"
-        >
-          <img
-            :src="'./assets/designspace/DO_icons/' + DO.DO_tag + '.svg'"
-            class="data-operation-symbol"
-            :style="{ backgroundColor: '#9ecae1' }"
-          />
-          <span class="scrollSpy-btn-text">{{ DO.DO_tag }}</span>
-        </div>
+      <div
+        class="dimension-header"
+        :class="doVisible ? null : 'collapsed'"
+        :aria-expanded="doVisible ? 'true' : 'false'"
+        aria-controls="collapse-nr"
+        @click="onClickDO()"
+      >
+        <span>Data Operation</span>
+        <span
+          class="dimension-head-stop"
+          :class="!doVisible ? null : 'focused-stop'"
+        ></span>
       </div>
+      <b-collapse id="collapse-nr" v-model="doVisible" class="mt-2">
+        <div class="sidebar-panel-group">
+          <div
+            href="#"
+            class="sidebar-btn scrollSpy-btn default"
+            v-for="DO in DataOperations"
+            :key="DO.DO_tag"
+          >
+            <img
+              :src="'./assets/designspace/DO_icons/' + DO.DO_tag + '.svg'"
+              class="data-operation-symbol"
+              :style="{ backgroundColor: '#9ecae1' }"
+            />
+            <span class="scrollSpy-btn-text">{{ DO.DO_tag }}</span>
+          </div>
+        </div>
+      </b-collapse>
     </div>
     <div id="transition-effect" class="dimention">
-      <div class="dimension-header">Transition Effects</div>
+      <div class="dimension-header">
+        <span>Transition Effects</span
+        ><span
+          class="dimension-head-stop"
+          :class="!teVisible ? null : 'focused-stop'"
+        ></span>
+      </div>
     </div>
     <div id="editorial-layer" class="dimention">
       <div class="dimension-header">Editorial Layers</div>
@@ -71,6 +103,9 @@ export default {
     return {
       NRSelect: {},
       DOSelect: {},
+      nrVisible: true,
+      doVisible: false,
+      teVisible: false,
     };
   },
   computed: {
@@ -87,6 +122,27 @@ export default {
     },
     DOSelectChange: function (DOTag) {
       this.$store.commit("UPDATE_DO_FILTER", DOTag);
+    },
+    onClickNR: function () {
+      if (!this.nrVisible) {
+        this.nrVisible = true;
+        this.doVisible = false;
+        this.teVisible = false;
+      }
+    },
+    onClickDO: function () {
+      if (!this.doVisible) {
+        this.nrVisible = false;
+        this.doVisible = true;
+        this.teVisible = false;
+      }
+    },
+    onClickTE: function () {
+      if (!this.teVisible) {
+        this.nrVisible = false;
+        this.doVisible = false;
+        this.teVisible = true;
+      }
     },
   },
   watch: {
@@ -158,13 +214,28 @@ export default {
   font-size: 16px;
   font-weight: 600;
   padding-left: 1em;
-  padding-bottom: 0.5em;
-  padding-top: 1em;
+  padding-bottom: 0.25em;
+  padding-top: 0.5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.25em;
+  background-color: #f7f7f7;
+}
+
+.dimension-header:hover {
+  background-color: #e7e7e7;
 }
 
 .dimention {
   margin-top: 0.5em;
   text-align: left;
+  width: 90%;
+}
+
+.dimension-header {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  transition: 0.2s;
 }
 
 .card-text {
@@ -276,5 +347,24 @@ export default {
   overflow: visible;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+.dimension-head-stop {
+  position: absolute;
+  width: 0.5rem;
+  height: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  background-color: #c6dbef;
+  border-top-right-radius: 0.1rem;
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 0.1rem;
+  border-bottom-left-radius: 0;
+  transition: 0.2s;
+}
+
+.focused-stop {
+  background-color: #3182bd;
 }
 </style>>

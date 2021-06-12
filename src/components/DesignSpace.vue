@@ -1,7 +1,7 @@
 <template>
   <b-container fluid>
     <b-row>
-      <b-col cols="2" id="ds-sidebar">
+      <b-col cols="2" id="ds-sidebar" >
         <DesignSpaceSideBar />
       </b-col>
       <b-col id="gallery">

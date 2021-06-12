@@ -17,8 +17,10 @@
               :src="
                 './assets/card/card-front/card-front-static/front_' +
                 card.card_id +
-                '.png'
+                '.' +
+                cardSrc
               "
+              @click="changeSource()"
             />
             <div id="card-data-operations-preference">
               <CardDataTag
@@ -97,15 +99,21 @@ export default {
   data: function () {
     return {
       cardFlip: Boolean,
+      cardSrc: String,
     };
   },
   mounted: function () {
     // Show the front side of the card at first
     this.cardFlip = false;
+    this.cardSrc = "png";
   },
   methods: {
     toggleCard: function () {
       this.cardFlip = !this.cardFlip;
+    },
+    changeSource: function () {
+      if (this.cardSrc == "png") this.cardSrc = "gif";
+      else this.cardSrc = "png";
     },
   },
 };
@@ -231,5 +239,10 @@ export default {
   position: fixed;
   right: 1rem;
   cursor: pointer;
+}
+
+.card-img {
+  cursor: pointer;
+  transition: 0.2s;
 }
 </style>
