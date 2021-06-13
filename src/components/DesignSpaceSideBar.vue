@@ -1,7 +1,7 @@
 <template>
   <div id="ds-sidebar">
     <div class="dimention search-bar-div">
-      <b-nav-form >
+      <b-nav-form>
         <b-form-input class="mr-sm-2 search-bar" placeholder="Search">
         </b-form-input>
       </b-nav-form>
@@ -99,6 +99,9 @@ import { mapState } from "vuex";
 
 export default {
   name: "DesignSpaceSideBar",
+  props: {
+    onGalleryChange: Function,
+  },
   data: function () {
     return {
       NRSelect: {},
@@ -128,6 +131,7 @@ export default {
         this.nrVisible = true;
         this.doVisible = false;
         this.teVisible = false;
+        this.onGalleryChange("NarrativeRelationship")
       }
     },
     onClickDO: function () {
@@ -135,6 +139,7 @@ export default {
         this.nrVisible = false;
         this.doVisible = true;
         this.teVisible = false;
+        this.onGalleryChange("DataOperation")
       }
     },
     onClickTE: function () {

@@ -53,11 +53,17 @@
             <div class="card-body">
               <div class="card-body-subtitle">{{ card.eg_title }}</div>
               <div class="card-body-text">
-                <div>
+                <div class="card-body-text-line">
                   <span><b>Source</b></span> {{ card.eg_source }}
                 </div>
-                <div>
+                <div class="card-body-text-line">
                   <span><b>Published Year</b></span> {{ card.eg_year }}
+                </div>
+                <div class="card-body-text-line">
+                  <span><b>Category</b></span> {{ card.eg_category }}
+                </div>
+                <div class="card-body-text-line">
+                  <span><b>Subcategory</b></span> {{ card.eg_subcategory }}
                 </div>
               </div>
             </div>
@@ -70,7 +76,9 @@
               </span>
             </div>
             <div v-else>
-              <span class="card-footer-num">No. {{ card.card_id }}</span>
+              <a :href="card.eg_url" target="_blank" rel="noopener noreferrer">
+              <span class="card-footer-url"></span>URL
+              </a>
               <span class="card-footer-btn" v-on:click="toggleCard()">
                 back to front
               </span>
@@ -163,7 +171,7 @@ export default {
 }
 
 .card-deck .card-body-subtitle {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 600;
 }
 
@@ -243,6 +251,24 @@ export default {
 
 .card-img {
   cursor: pointer;
-  transition: 0.2s;
+  transition: 0.5s;
 }
+
+.card-body-text-line {
+  font-size: 0.8rem;
+  margin-bottom: 0.3rem;
+}
+
+.card-footer-url {
+    content: "";
+    width: 16px;
+    height: 16px;
+    background-image: url(../../public/assets/icon/icon_sprite.svg);
+    background-position: -100px -20px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
+
 </style>
