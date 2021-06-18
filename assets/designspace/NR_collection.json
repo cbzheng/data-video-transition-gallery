@@ -1,0 +1,106 @@
+{
+    "NR": [
+    {
+        "NR_id": 0,
+        "NR_tag": "相似",
+        "NR_color": "#5aa4b9",
+        "NR_indicator": [
+            "and",
+            "similarly"
+        ],
+        "NR_desc": "Two succeeding data facts are logically parallel to each other",
+        "NR_example": {
+            "before": "China's carbon emission is increasing",
+            "after": "United State's carbon emission is also increasing"
+        },
+        "NR_num": 15
+    },
+    {
+        "NR_id": 1,
+        "NR_tag": "对比",
+        "NR_color": "#87c898",
+        "NR_indicator": [
+            "but",
+            "by contrast"
+        ],
+        "NR_desc": "Two succeeding data facts present a contradiction between each other",
+        "NR_example": {
+            "before": "India's population rank second in the world",
+            "after": "But India's GDP rank sixth in the world"
+        },
+        "NR_num": 8
+    },
+    {
+        "NR_id": 2,
+        "NR_tag": "细化",
+        "NR_color": "#fae2ab",
+        "NR_indicator": [
+            "also",
+            "furthermore",
+            "in addition"
+        ],
+        "NR_desc": "The latter data fact add more details to the previous one",
+        "NR_example": {
+            "before": "Chongqing ranked fifth in  traffic congestion among megacities in Asia in 2020",
+            "after": "September is the most congested month in Chongqing in 2020"
+        },
+        "NR_num": 9
+    },
+    {
+        "NR_id": 3,
+        "NR_tag": "泛化",
+        "NR_color": "#c6dd7a",
+        "NR_indicator": ["in general"],
+        "NR_desc": "The latter data fact is an abstraction of the previous one",
+        "NR_example": {
+            "before": "3.2 billion people in the world own a smartphone in 2019",
+            "after": "The number of smartphone users worldwide continue to increase from 2016 to 2021"
+        },
+        "NR_num": 5
+    },
+    {
+        "NR_id": 4,
+        "NR_tag": "因果",
+        "NR_color": "#f3c76e",
+        "NR_indicator": [
+            "because",
+            "and so"
+        ],
+        "NR_desc": "The latter data fact is caused by the previous one",
+        "NR_example": {
+            "before": "The number of people watching football games is increasing every year",
+            "after": "The price of seats for football games has also increased year by year"
+        },
+        "NR_num": 4
+    },
+    {
+        "NR_id": 5,
+        "NR_tag": "时序",
+        "NR_color": "#eea34a",
+        "NR_indicator": [
+            "(and) then",
+            "before",
+            "after"
+        ],
+        "NR_example": {
+            "before": "The percentage of obesity and overweight in adults were 19.3% in 2013",
+            "after": "In 2018, the percentage of obesity and overweight in adults were 25.6%"
+        },
+        "NR_desc": "One data fact follow the other one according to the order of time",
+        "NR_num": 2
+    },
+    {
+        "NR_id": 6,
+        "NR_tag": "通用",
+        "NR_color": "#dd5051",
+        "NR_indicator": [
+        ],
+        "NR_example": {
+            "before": "",
+            "after": ""
+        },
+        "NR_desc": "",
+        "NR_num": 2
+    }
+]
+}

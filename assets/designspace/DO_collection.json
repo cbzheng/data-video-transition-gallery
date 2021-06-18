@@ -1,0 +1,50 @@
+[
+    {
+        "DO_id": 0,
+        "DO_tag": "维度漫步",
+        "DO_color": "#9ecae1",
+        "DO_desc": "change the selection of value in one dimension",
+        "DO_example": "The trend of the infected cases number in France -> the trend of the infected cases number in Germany",
+        "DO_num": 15
+    },
+    {
+        "DO_id": 1,
+        "DO_tag": "尺度漫步",
+        "DO_color": "#9ecae1",
+        "DO_desc": "change the measurement of the data fact",
+        "DO_example": "The trend of the infected cases number in France -> the trend of the infected cases number in Germany",
+        "DO_num": 15
+    },
+    {
+        "DO_id": 2,
+        "DO_tag": "向下挖掘",
+        "DO_color": "#9ecae1",
+        "DO_desc": "dig into details of the previous data fact",
+        "DO_example": "The trend of the infected cases number in France -> the trend of the infected cases number in Germany",
+        "DO_num": 15
+    },
+    {
+        "DO_id": 3,
+        "DO_tag": "向上钻取",
+        "DO_color": "#9ecae1",
+        "DO_desc": "abstract and summarize from the previous data fact",
+        "DO_example": "The trend of the infected cases number in France -> the trend of the infected cases number in Germany",
+        "DO_num": 15
+    },
+    {
+        "DO_id": 4,
+        "DO_tag": "增加",
+        "DO_color": "#9ecae1",
+        "DO_desc": "增加 new data fact",
+        "DO_example": "The trend of the infected cases number in France -> the trend of the infected cases number in Germany",
+        "DO_num": 15
+    },
+    {
+        "DO_id": 5,
+        "DO_tag": "drop",
+        "DO_color": "#9ecae1",
+        "DO_desc": "drop old data fact",
+        "DO_example": "The trend of the infected cases number in France -> the trend of the infected cases number in Germany",
+        "DO_num": 15
+    }
+]

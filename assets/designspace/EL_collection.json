@@ -1,0 +1,22 @@
+[
+    {
+        "EL_id": 0,
+        "EL_tag": "vis elements"
+    },
+    {
+        "EL_id": 1,
+        "EL_tag": "auxiliary elements"
+    },
+    {
+        "EL_id": 2,
+        "EL_tag": "camera"
+    },
+    {
+        "EL_id": 3,
+        "EL_tag": "timeline"
+    },
+    {
+        "EL_id": 4,
+        "EL_tag": "frame"
+    }
+]
